@@ -52,3 +52,6 @@ bld/
 ## Rider
 .idea/
 *.sln.iml
+
+##MacOS Finder
+.DS_Store
