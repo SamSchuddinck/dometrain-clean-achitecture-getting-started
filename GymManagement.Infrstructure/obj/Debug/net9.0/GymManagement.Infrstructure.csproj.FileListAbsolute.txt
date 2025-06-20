@@ -2,8 +2,6 @@
 /Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Infrstructure/bin/Debug/net9.0/GymManagement.Infrstructure.dll
 /Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Infrstructure/bin/Debug/net9.0/GymManagement.Infrstructure.pdb
 /Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Infrstructure/bin/Debug/net9.0/GymManagement.Domain.dll
-/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Infrstructure/bin/Debug/net9.0/GymManagment.Application.dll
-/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Infrstructure/bin/Debug/net9.0/GymManagment.Application.pdb
 /Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Infrstructure/bin/Debug/net9.0/GymManagement.Domain.pdb
 /Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Infrstructure/obj/Debug/net9.0/GymManagement.Infrstructure.csproj.AssemblyReference.cache
 /Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Infrstructure/obj/Debug/net9.0/GymManagement.Infrstructure.GeneratedMSBuildEditorConfig.editorconfig
@@ -15,3 +13,6 @@
 /Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Infrstructure/obj/Debug/net9.0/refint/GymManagement.Infrstructure.dll
 /Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Infrstructure/obj/Debug/net9.0/GymManagement.Infrstructure.pdb
 /Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Infrstructure/obj/Debug/net9.0/ref/GymManagement.Infrstructure.dll
+/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Infrstructure/bin/Debug/net9.0/GymManagement.Application.dll
+/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Infrstructure/bin/Debug/net9.0/GymManagement.Application.pdb
+/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Infrstructure/obj/Debug/net9.0/GymManagement.Infrstructure.sourcelink.json

@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../GymManagment.Application/GymManagment.Application.csproj" />
+    <ProjectReference Include="../GymManagement.Application/GymManagement.Application.csproj" />
   </ItemGroup>
 
 </Project>

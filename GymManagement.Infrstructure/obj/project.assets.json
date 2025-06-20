@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net9.0": {
+      "GymManagement.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "GymManagement.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GymManagement.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GymManagement.Application.dll": {}
+        }
+      },
       "GymManagement.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
@@ -11,37 +24,24 @@
         "runtime": {
           "bin/placeholder/GymManagement.Domain.dll": {}
         }
-      },
-      "GymManagment.Application/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "dependencies": {
-          "GymManagement.Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/GymManagment.Application.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GymManagment.Application.dll": {}
-        }
       }
     }
   },
   "libraries": {
+    "GymManagement.Application/1.0.0": {
+      "type": "project",
+      "path": "../GymManagement.Application/GymManagement.Application.csproj",
+      "msbuildProject": "../GymManagement.Application/GymManagement.Application.csproj"
+    },
     "GymManagement.Domain/1.0.0": {
       "type": "project",
       "path": "../GymManagement.Domain/GymManagement.Domain.csproj",
       "msbuildProject": "../GymManagement.Domain/GymManagement.Domain.csproj"
-    },
-    "GymManagment.Application/1.0.0": {
-      "type": "project",
-      "path": "../GymManagment.Application/GymManagment.Application.csproj",
-      "msbuildProject": "../GymManagment.Application/GymManagment.Application.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "GymManagment.Application >= 1.0.0"
+      "GymManagement.Application >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -70,8 +70,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagment.Application/GymManagment.Application.csproj": {
-              "projectPath": "/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagment.Application/GymManagment.Application.csproj"
+            "/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Application/GymManagement.Application.csproj": {
+              "projectPath": "/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Application/GymManagement.Application.csproj"
             }
           }
         }
