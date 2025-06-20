@@ -1,0 +1,11 @@
+/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Domain/bin/Debug/net9.0/GymManagement.Domain.deps.json
+/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Domain/bin/Debug/net9.0/GymManagement.Domain.dll
+/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Domain/bin/Debug/net9.0/GymManagement.Domain.pdb
+/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Domain/obj/Debug/net9.0/GymManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Domain/obj/Debug/net9.0/GymManagement.Domain.AssemblyInfoInputs.cache
+/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Domain/obj/Debug/net9.0/GymManagement.Domain.AssemblyInfo.cs
+/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Domain/obj/Debug/net9.0/GymManagement.Domain.csproj.CoreCompileInputs.cache
+/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Domain/obj/Debug/net9.0/GymManagement.Domain.dll
+/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Domain/obj/Debug/net9.0/refint/GymManagement.Domain.dll
+/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Domain/obj/Debug/net9.0/GymManagement.Domain.pdb
+/Users/samschuddinck/code/dometrain/clean-architecture-getting-started/GymManagement.Domain/obj/Debug/net9.0/ref/GymManagement.Domain.dll
