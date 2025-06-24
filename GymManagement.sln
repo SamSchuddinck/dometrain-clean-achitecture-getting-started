@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymManagement.Api", "GymMan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymManagement.Application", "GymManagement.Application\GymManagement.Application.csproj", "{E13FB138-622C-4500-87B3-00D63FCB2193}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymManagement.Infrstructure", "GymManagement.Infrstructure\GymManagement.Infrstructure.csproj", "{6764823D-2511-44B6-B53E-1D3452408092}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymManagement.Infrastructure", "GymManagement.Infrstructure\GymManagement.Infrastructure.csproj", "{6764823D-2511-44B6-B53E-1D3452408092}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymManagement.Domain", "GymManagement.Domain\GymManagement.Domain.csproj", "{0849B400-1246-4330-B72E-BE295FABA86E}"
 EndProject
