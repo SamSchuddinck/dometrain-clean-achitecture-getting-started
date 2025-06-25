@@ -5,5 +5,5 @@ namespace GymManagement.Application.Common.Interfaces;
 
 public interface ISubscriptionRepository
 {
-    public void AddSubscription(Subscription subscription);
+    Task AddSubscriptionAsync(Subscription subscription);
 }
