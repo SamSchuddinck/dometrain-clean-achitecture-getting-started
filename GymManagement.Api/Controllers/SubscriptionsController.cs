@@ -20,14 +20,14 @@ public class SubscriptionsController : ControllerBase
     {
         var command = new CreateSubscriptionCommand(request.SubscriptionType.ToString(), request.AdminId);
 
-        var subscriptionId = await _mediator.Send(command);
-
-        var response = new SubscriptionResponse
-        {
-            Id = subscriptionId,
-            SubscriptionType = request.SubscriptionType,
-        };
-
-        return Ok(response);
+        var createSubscriptionResult = await _mediator.Send(command);
+        
+        return createSubscriptionResult.MatchFirst(
+            guid => Ok(new SubscriptionResponse{
+                Id = guid,
+                SubscriptionType = request.SubscriptionType,
+            }),
+            error => Problem()
+        );
     }
 }
