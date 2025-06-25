@@ -23,8 +23,8 @@ public class SubscriptionsController : ControllerBase
         var createSubscriptionResult = await _mediator.Send(command);
         
         return createSubscriptionResult.MatchFirst(
-            guid => Ok(new SubscriptionResponse{
-                Id = guid,
+            subscription => Ok(new SubscriptionResponse{
+                Id = subscription.Id,
                 SubscriptionType = request.SubscriptionType,
             }),
             error => Problem()
