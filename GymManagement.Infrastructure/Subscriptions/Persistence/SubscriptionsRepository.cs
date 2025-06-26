@@ -23,4 +23,10 @@ public class SubscriptionsRepository : ISubscriptionRepository
     {
         return await _dbContext.Subscriptions.FindAsync(subscriptionId);
     }
+
+    public Task DeleteSubscriptionAsync(Subscription subscription)
+    {
+        _dbContext.Subscriptions.Remove(subscription);
+        return Task.CompletedTask;
+    }
 }

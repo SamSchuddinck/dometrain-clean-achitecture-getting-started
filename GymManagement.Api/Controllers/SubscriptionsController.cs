@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using GymManagement.Application.Subscriptions.Commands.CreateSubscription;
 using GymManagement.Application.Subscriptions.Queries.GetSubscription;
 using DomainSubcriptionType = GymManagement.Domain.Subscriptions.SubscriptionType;
+using GymManagement.Application.Subscriptions.Commands.DeleteSubscription;
 
 namespace GymManagement.Api.Controllers;
 
@@ -59,6 +60,18 @@ public class SubscriptionsController : ControllerBase
                 Id = subscription.Id,
                 SubscriptionType = Enum.Parse<SubscriptionType>(subscription.SubscriptionType.Name)
             }),
+            error => Problem()
+        );
+    }
+
+    [HttpDelete("{subscriptionId:guid}")]
+    public async Task<IActionResult> DeleteSubscription(Guid subscriptionId)
+    {
+        var command = new DeleteSubscriptionCommand(subscriptionId);
+        var deleteSubscriptionResult = await _mediator.Send(command);
+
+        return deleteSubscriptionResult.MatchFirst<IActionResult>(
+            _ => NoContent(),
             error => Problem()
         );
     }
