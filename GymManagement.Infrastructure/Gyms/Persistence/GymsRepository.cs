@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GymManagement.Infrastructure.Gyms.Persistence;
 
-public class GymsRepository(GymManagementDbContext dbContext) : IGymRepository
+public class GymsRepository(GymManagementDbContext dbContext) : IGymsRepository
 {
     private readonly GymManagementDbContext _dbContext = dbContext;
 

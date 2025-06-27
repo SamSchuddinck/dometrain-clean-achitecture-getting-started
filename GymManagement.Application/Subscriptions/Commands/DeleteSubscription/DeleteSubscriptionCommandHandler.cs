@@ -7,11 +7,11 @@ namespace GymManagement.Application.Subscriptions.Commands.DeleteSubscription;
 
 public class DeleteSubscriptionCommandHandler : IRequestHandler<DeleteSubscriptionCommand, ErrorOr<Deleted>>
 {
-    private readonly ISubscriptionRepository _subscriptionRepository;
+    private readonly ISubscriptionsRepository _subscriptionRepository;
     private readonly IUnitOfWork _unitOfWork;
 
     public DeleteSubscriptionCommandHandler(
-        ISubscriptionRepository subscriptionRepository,
+        ISubscriptionsRepository subscriptionRepository,
         IUnitOfWork unitOfWork)
     {
         _subscriptionRepository = subscriptionRepository;

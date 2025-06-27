@@ -14,8 +14,8 @@ public static class DependencyInjection
         // Register infrastructure services here
         services.AddDbContext<GymManagementDbContext>(options =>
             options.UseSqlite("Data Source=GymManagement.db"));
-        services.AddScoped<ISubscriptionRepository, SubscriptionsRepository>();
-        services.AddScoped<IGymRepository, GymsRepository>();
+        services.AddScoped<ISubscriptionsRepository, SubscriptionsRepository>();
+        services.AddScoped<IGymsRepository, GymsRepository>();
         services.AddScoped<IUnitOfWork>( services => services.GetRequiredService<GymManagementDbContext>());
         
         return services;
