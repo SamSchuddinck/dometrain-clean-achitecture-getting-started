@@ -2,7 +2,4 @@ using System;
 
 namespace GymManagement.Domain.Gyms;
 
-public class GymResponse
-{
-
-}
+public record GymResponse(Guid id, string Name){};
