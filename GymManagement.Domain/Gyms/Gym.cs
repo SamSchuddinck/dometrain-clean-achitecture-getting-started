@@ -1,5 +1,7 @@
 using System;
 using ErrorOr;
+using GymManagement.Domain.Rooms;
+using Throw;
 
 namespace GymManagement.Domain.Gyms;
 
@@ -42,6 +44,30 @@ public class Gym
     {
         return _trainerIds.Contains(trainerId);
     }
+    
+     public ErrorOr<Success> AddRoom(Room room)
+    {
+        _roomIds.Throw().IfContains(room.Id);
 
-    private Gym() {}
+        if (_roomIds.Count >= _maxRooms)
+        {
+            return GymErrors.CannotHaveMoreRoomsThanSubscriptionAllows;
+        }
+
+        _roomIds.Add(room.Id);
+
+        return Result.Success;
+    }
+
+    public bool HasRoom(Guid roomId)
+    {
+        return _roomIds.Contains(roomId);
+    }
+
+    public void RemoveRoom(Guid roomId)
+    {
+        _roomIds.Remove(roomId);
+    }
+
+    private Gym() { }
 }

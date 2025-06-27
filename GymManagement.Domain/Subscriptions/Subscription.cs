@@ -68,4 +68,11 @@ public class Subscription
 
         _gymIds.Remove(gymId);
     }
+    public int GetMaxDailySessions() => SubscriptionType.Name switch
+    {
+        nameof(SubscriptionType.Free) => 4,
+        nameof(SubscriptionType.Starter) => int.MaxValue,
+        nameof(SubscriptionType.Pro) => int.MaxValue,
+        _ => throw new InvalidOperationException()
+    };
 }
