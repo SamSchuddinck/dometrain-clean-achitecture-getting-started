@@ -48,8 +48,21 @@ public class Subscription
         nameof(SubscriptionType.Pro) => 3,
         _ => throw new InvalidOperationException()
     };
-    
-     public void RemoveGym(Guid gymId)
+
+    public int GetMaxRooms() => SubscriptionType.Name switch
+    {
+        nameof(SubscriptionType.Free) => 1,
+        nameof(SubscriptionType.Starter) => 3,
+        nameof(SubscriptionType.Pro) => int.MaxValue,
+        _ => throw new InvalidOperationException()
+    };
+
+    public bool HasGym(Guid gymId)
+    {
+        return _gymIds.Contains(gymId);
+    }
+
+    public void RemoveGym(Guid gymId)
     {
         _gymIds.Throw().IfNotContains(gymId);
 
