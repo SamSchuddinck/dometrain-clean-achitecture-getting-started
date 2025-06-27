@@ -55,3 +55,7 @@ bld/
 
 ##MacOS Finder
 .DS_Store
+
+GymManagement.Api/GymManagement.db
+GymManagement.Api/GymManagement.db-shm
+GymManagement.Api/GymManagement.db-wal
