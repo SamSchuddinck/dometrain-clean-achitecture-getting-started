@@ -13,4 +13,6 @@ public interface ISubscriptionsRepository
     Task<bool> ExistsAsync(Guid id);
 
     Task UpdateAsync(Subscription subscription);
+
+    Task<Subscription?> GetByAdminIdAsync(Guid adminId);
 }

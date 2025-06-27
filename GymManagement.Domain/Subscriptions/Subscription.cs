@@ -11,8 +11,8 @@ public class Subscription
     private readonly List<Guid> _gymIds = [];
 
     private readonly int _maxGyms;
-    private readonly Guid _adminId;
     public Guid Id { get; private set; }
+    public Guid AdminId { get; }
 
     public SubscriptionType SubscriptionType { get; private set; }
 
@@ -20,7 +20,7 @@ public class Subscription
     {
         Id = id ?? Guid.NewGuid();
         SubscriptionType = subscriptionType;
-        _adminId = adminId;
+        AdminId = adminId;
 
         _maxGyms = GetMaxGyms();
     }
