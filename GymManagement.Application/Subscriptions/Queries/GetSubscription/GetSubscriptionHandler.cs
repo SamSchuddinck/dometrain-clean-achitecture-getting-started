@@ -8,9 +8,9 @@ namespace GymManagement.Application.Subscriptions.Queries.GetSubscription;
 
 public class GetSubscriptionHandler: IRequestHandler<GetSubscriptionQuery, ErrorOr<Subscription>>
 {
-    private readonly ISubscriptionRepository _subscriptionRepository;
+    private readonly ISubscriptionsRepository _subscriptionRepository;
 
-    public GetSubscriptionHandler(ISubscriptionRepository subscriptionRepository)
+    public GetSubscriptionHandler(ISubscriptionsRepository subscriptionRepository)
     {
         _subscriptionRepository = subscriptionRepository;
     }
