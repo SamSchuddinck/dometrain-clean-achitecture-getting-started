@@ -43,4 +43,16 @@ public class SubscriptionsRepository : ISubscriptionsRepository
         _dbContext.Subscriptions.Remove(subscription);
         return Task.CompletedTask;
     }
+
+    public async Task<Subscription?> GetByAdminIdAsync(Guid adminId)
+    {
+        return await _dbContext.Subscriptions
+            .AsNoTracking()
+            .FirstOrDefaultAsync(subscription => subscription.AdminId == adminId);
+    }
+
+    public Task RemoveSubscriptionAsync(Subscription subscription)
+    {
+        throw new NotImplementedException();
+    }
 }

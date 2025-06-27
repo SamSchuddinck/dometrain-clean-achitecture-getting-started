@@ -8,9 +8,9 @@ using GymManagement.Application.Subscriptions.Commands.DeleteSubscription;
 
 namespace GymManagement.Api.Controllers;
 
-[ApiController]
+
 [Route("[controller]")]
-public class SubscriptionsController : ControllerBase
+public class SubscriptionsController : ApiController
 {
     private readonly ISender _mediator;
     public SubscriptionsController(ISender mediator)
@@ -43,7 +43,7 @@ public class SubscriptionsController : ControllerBase
                 Id = subscription.Id,
                 SubscriptionType = request.SubscriptionType,
             }),
-            error => Problem()
+            Problem
         );
     }
 
@@ -58,9 +58,9 @@ public class SubscriptionsController : ControllerBase
             subscription => Ok(new SubscriptionResponse
             {
                 Id = subscription.Id,
-                SubscriptionType = Enum.Parse<SubscriptionType>(subscription.SubscriptionType.Name)
+                SubscriptionType = ToDto(subscription.SubscriptionType)
             }),
-            error => Problem()
+            Problem
         );
     }
 
@@ -72,7 +72,18 @@ public class SubscriptionsController : ControllerBase
 
         return deleteSubscriptionResult.MatchFirst<IActionResult>(
             _ => NoContent(),
-            error => Problem()
+            Problem
         );
     }
+
+    private static SubscriptionType ToDto(DomainSubcriptionType subscriptionType)
+    {
+        return subscriptionType.Name switch
+        {
+            nameof(DomainSubcriptionType.Free) => SubscriptionType.Free,
+            nameof(DomainSubcriptionType.Starter) => SubscriptionType.Starter,
+            nameof(DomainSubcriptionType.Pro) => SubscriptionType.Pro,
+            _ => throw new InvalidOperationException(),
+        };
+    }    
 }
