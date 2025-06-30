@@ -2,6 +2,7 @@ using ErrorOr;
 using FluentValidation;
 using MediatR;
 
+namespace GymManagement.Application.Common.Interfaces.Behaviours;
 public class ValidationBehaviour<TRequest, TResponse>(IValidator<TRequest>? validator = null) : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
     where TResponse : IErrorOr
