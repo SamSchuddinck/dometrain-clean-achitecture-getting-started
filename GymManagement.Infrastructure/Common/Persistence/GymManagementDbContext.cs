@@ -37,7 +37,7 @@ public class GymManagementDbContext(DbContextOptions<GymManagementDbContext> opt
     {
         // Fetch queue from http context or create a new one if it doesn't exist
         var domainEventsQueue = _httpContextAccessor.HttpContext!.Items
-        .TryGetValue("domainEventsQueue", out var queue) && queue is Queue<IDomainEvent> existingQueue
+        .TryGetValue("DomainEventsQueue", out var queue) && queue is Queue<IDomainEvent> existingQueue
         ? existingQueue
         : new Queue<IDomainEvent>();
 
@@ -45,7 +45,7 @@ public class GymManagementDbContext(DbContextOptions<GymManagementDbContext> opt
         domainEvents.ForEach(domainEventsQueue.Enqueue);
 
         // Store the updated queue back in the http context
-        _httpContextAccessor.HttpContext!.Items["domainEventsQueue"] = domainEventsQueue;
+        _httpContextAccessor.HttpContext!.Items["DomainEventsQueue"] = domainEventsQueue;
 
     }
 
