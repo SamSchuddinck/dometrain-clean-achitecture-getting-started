@@ -14,8 +14,16 @@ public class CurrentUserProvider(IHttpContextAccessor httpContextAccessor) : ICu
     {
         _httpContextAccessor.HttpContext.ThrowIfNull();
 
-        var claim = _httpContextAccessor.HttpContext.User.Claims.First(claim => claim.Type == "id");
+        var idClaim = _httpContextAccessor.HttpContext.User.Claims.First(claim => claim.Type == "id");
 
-        return new CurrentUser(Guid.Parse(claim.Value));
+        var permissions = _httpContextAccessor.HttpContext.User.Claims
+            .Where(claim => claim.Type == "permissions")
+            .Select(claim => claim.Value)
+            .ToList();
+
+        return new CurrentUser(
+            Id:Guid.Parse(idClaim.Value),
+            Permissions: permissions
+        );
     }
 }

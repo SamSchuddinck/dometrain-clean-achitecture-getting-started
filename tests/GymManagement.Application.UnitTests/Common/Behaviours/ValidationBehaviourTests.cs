@@ -4,7 +4,7 @@ using ErrorOr;
 using FluentAssertions;
 using FluentValidation;
 using FluentValidation.Results;
-using GymManagement.Application.Common.Interfaces.Behaviours;
+using GymManagement.Application.Common.Behaviours;
 using GymManagement.Application.Gyms.Commands.CreateGym;
 using GymManagement.Domain.Gyms;
 using MediatR;
