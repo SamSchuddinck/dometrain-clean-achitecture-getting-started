@@ -22,10 +22,11 @@ public class AuthorizationBehaviour<TRequest, TResponse>(ICurrentUserProvider _c
         }
 
         var requiredPermissions = authorizationAttributes.SelectMany(authorizationAttribute => authorizationAttribute.Permissions?.Split(',') ?? []).ToList();
+        var requiredRoles = authorizationAttributes.SelectMany(authorizationAttribute => authorizationAttribute.Roles?.Split(',') ?? []).ToList();
 
         var currentUser = _currentUserProvider.GetCurrentUser();
 
-        if (requiredPermissions.Except(currentUser.Permissions).Any())
+        if (requiredRoles.Except(currentUser.Roles).Any())
         {
             return (dynamic)Error.Unauthorized("User is forbidden from taking this action");
         }
