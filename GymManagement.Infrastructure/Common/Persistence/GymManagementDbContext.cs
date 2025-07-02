@@ -5,12 +5,13 @@ using GymManagement.Domain.Admins;
 using GymManagement.Domain.Common;
 using GymManagement.Domain.Gyms;
 using GymManagement.Domain.Subscriptions;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace GymManagement.Infrastructure.Common.Persistence;
 
-public class GymManagementDbContext(DbContextOptions<GymManagementDbContext> options, IHttpContextAccessor httpContextAccessor) : DbContext(options), IUnitOfWork
+public class GymManagementDbContext(DbContextOptions<GymManagementDbContext> options, IHttpContextAccessor httpContextAccessor, IPublisher _publisher) : DbContext(options), IUnitOfWork
 {
     public DbSet<Admin> Admins { get; set; } = null!;
 
@@ -18,6 +19,7 @@ public class GymManagementDbContext(DbContextOptions<GymManagementDbContext> opt
     public DbSet<Gym> Gyms { get; set; } = null!;
 
     private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
+
 
     public async Task CommitChangesAsync()
     {
@@ -27,11 +29,30 @@ public class GymManagementDbContext(DbContextOptions<GymManagementDbContext> opt
             .Select(entry => entry.Entity.PopDomainEvents())
             .SelectMany(events => events)
             .ToList();
-        // Store them in the http context for later
-        AddDomainEventsToOfflineProcessingQueue(domainEvents);
 
-        await base.SaveChangesAsync();
+            
+        // Store them in the http context for later
+        if (IsUserWaitingOnline())
+        {
+            AddDomainEventsToOfflineProcessingQueue(domainEvents);
+        }
+        else
+        {
+            await PublishDomainEvents(_publisher, domainEvents);
+        }
+
+        await SaveChangesAsync();
     }
+
+    private async Task PublishDomainEvents(IPublisher publisher, List<IDomainEvent> domainEvents)
+    {
+        foreach (var domainEvent in domainEvents)
+        {
+            await publisher.Publish(domainEvent);
+        }
+    }
+
+    private bool IsUserWaitingOnline() => _httpContextAccessor.HttpContext is not null;
 
     private void AddDomainEventsToOfflineProcessingQueue(List<IDomainEvent> domainEvents)
     {

@@ -38,11 +38,14 @@ public class SubscriptionsController : ApiController
         var createSubscriptionResult = await _mediator.Send(command);
 
         return createSubscriptionResult.MatchFirst(
-            subscription => Ok(new SubscriptionResponse
-            {
-                Id = subscription.Id,
-                SubscriptionType = request.SubscriptionType,
-            }),
+            subscription => CreatedAtAction(
+                nameof(GetSubscription),
+                new {subscriptionId = subscription.Id},
+                new SubscriptionResponse
+                {
+                    Id = subscription.Id,
+                    SubscriptionType = ToDto(subscription.SubscriptionType),
+                }),
             Problem
         );
     }
