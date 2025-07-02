@@ -1,6 +1,6 @@
 using ErrorOr;
 using FluentValidation;
-using GymManagement.Application.Common.Interfaces.Behaviours;
+using GymManagement.Application.Common.Behaviours;
 using GymManagement.Application.Gyms.Commands.CreateGym;
 using GymManagement.Domain.Gyms;
 using MediatR;
@@ -16,6 +16,7 @@ public static class DependencyInjection
         {
             cfg.RegisterServicesFromAssemblyContaining(typeof(DependencyInjection));
             cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
+            cfg.AddOpenBehavior(typeof(AuthorizationBehaviour<,>));
         });
 
         services.AddValidatorsFromAssemblyContaining(typeof(DependencyInjection));

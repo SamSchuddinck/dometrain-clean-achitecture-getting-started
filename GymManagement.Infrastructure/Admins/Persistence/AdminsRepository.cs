@@ -9,6 +9,11 @@ public class AdminsRepository(GymManagementDbContext dbContext) : IAdminsReposit
 {
     private readonly GymManagementDbContext _dbContext = dbContext;
 
+    public async Task AddAdminAsync(Admin admin)
+    {
+        await _dbContext.Admins.AddAsync(admin);
+    }
+
     public Task<Admin?> GetByIdAsync(Guid adminId)
     {
         return _dbContext.Admins.FirstOrDefaultAsync(a => a.Id == adminId);
