@@ -2,9 +2,10 @@ using MediatR;
 
 using Microsoft.AspNetCore.Mvc;
 
-using GymManagement.Application.Profiles.ListProfiles;
 using GymManagement.Contracts.Profiles;
 using GymManagement.Application.Profiles.Commands.CreateAdminProfile;
+using GymManagement.Application.Profiles.ListProfiles;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GymManagement.Api.Controllers;
 
@@ -12,6 +13,7 @@ namespace GymManagement.Api.Controllers;
 public class ProfilesController(ISender _mediator) : ApiController
 {
     [HttpPost("admin")]
+    [Authorize]
     public async Task<IActionResult> CreateAdminProfile(Guid userId)
     {
         var command = new CreateAdminProfileCommand(userId);
