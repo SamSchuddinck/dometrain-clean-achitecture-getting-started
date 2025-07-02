@@ -8,6 +8,5 @@ public class CreateGymCommandValidator : AbstractValidator<CreateGymCommand>
         RuleFor(command => command.Name)
             .MinimumLength(3)
             .MaximumLength(100);
-            
     }
 }
